@@ -1,0 +1,48 @@
+tree("Root")
+	fallback
+		repeat 
+			sequence
+				CheckAlive
+				UpdateHit
+				CheckPhase1
+				tree("Phase1")
+		repeat 
+			sequence
+				ControlAnim
+				UpdateHit
+				CheckAlive
+				CheckPhase2
+				tree("Phase2")
+
+
+tree("Phase1")
+	while Phase1
+		fallback				
+			sequence
+				IsPlayerRangeFar
+				ControlAnim
+			sequence
+				IsPlayerRangeMiddle
+				ControlAnim
+			sequence
+				EMPExplosion
+				IsPlayerRangeClose
+				ControlAnim
+
+tree("Phase2")
+	while Phase2
+		fallback
+			sequence
+				UltUse
+				ControlAnim
+			sequence
+				IsPlayerRangeFar
+				ControlAnim
+			sequence
+				IsPlayerRangeMiddle
+				ControlAnim
+			sequence
+				EMPExplosion
+				IsPlayerRangeClose
+				ControlAnim
+
